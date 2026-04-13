@@ -1,0 +1,63 @@
+import { Scissors, Menu, X } from "lucide-react";
+import { useState } from "react";
+
+const navLinks = [
+  { label: "Início", href: "#hero" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Produtos", href: "#produtos" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Como Funciona", href: "#como-funciona" },
+  { label: "Localização", href: "#localizacao" },
+];
+
+export function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+        <a href="#hero" className="flex items-center gap-2">
+          <Scissors className="w-6 h-6 text-gold" />
+          <span className="font-heading text-lg font-bold text-foreground">DUDU <span className="text-gold">BARBEARIA</span></span>
+        </a>
+
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-muted-foreground hover:text-gold transition-colors duration-300"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {open && (
+        <div className="md:hidden bg-background border-b border-border animate-fade-in">
+          <div className="flex flex-col px-4 py-4 gap-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="text-sm text-muted-foreground hover:text-gold transition-colors py-2"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
