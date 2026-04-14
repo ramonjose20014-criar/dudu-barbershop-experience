@@ -1,5 +1,5 @@
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Package } from "lucide-react";
+import { FadeIn } from "./animations/FadeIn";
 
 const products = [
   { name: "Pomadas", price: "R$15" },
@@ -8,28 +8,32 @@ const products = [
 ];
 
 export function ProductsSection() {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section id="produtos" className="py-20 px-4 bg-surface" ref={ref}>
+    <section id="produtos" className="pb-20 pt-8 px-4 relative z-10">
       <div className="max-w-4xl mx-auto">
-        <h2 className={`text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-foreground transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <span className="gold-gradient">Produtos</span>
-        </h2>
+        <FadeIn direction="up">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-foreground">
+            <span className="gold-gradient">Produtos</span>
+          </h2>
+        </FadeIn>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-3 gap-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          {products.map((p) => (
-            <div key={p.name} className="bg-card border border-border rounded-xl p-6 text-center hover:border-gold/50 transition-all duration-300 hover:gold-glow">
-              <Package className="w-8 h-8 text-gold mx-auto mb-3" />
-              <h3 className="text-foreground font-semibold mb-2">{p.name}</h3>
-              <p className="text-gold text-2xl font-bold font-heading">{p.price}</p>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {products.map((p, i) => (
+            <FadeIn key={p.name} direction="up" delay={i * 0.15}>
+              <div className="bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:border-gold/50 transition-all duration-300 hover:gold-glow group h-full">
+                <Package className="w-8 h-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-foreground font-semibold mb-2">{p.name}</h3>
+                <p className="text-gold text-2xl font-bold font-heading">{p.price}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
 
-        <p className={`text-center text-muted-foreground text-sm mt-8 italic transition-all duration-700 delay-200 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          Produtos disponíveis diretamente na barbearia.
-        </p>
+        <FadeIn direction="up" delay={0.4}>
+          <p className="text-center text-muted-foreground text-sm mt-8 italic">
+            Produtos disponíveis diretamente na barbearia.
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

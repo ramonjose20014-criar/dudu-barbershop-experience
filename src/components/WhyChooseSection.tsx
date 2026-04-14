@@ -1,6 +1,6 @@
 import { Rocket, Flame, Zap, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { FadeIn } from "./animations/FadeIn";
 
 const reasons = [
   {
@@ -26,34 +26,34 @@ const reasons = [
 ];
 
 export function WhyChooseSection() {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-20 px-4 bg-surface" ref={ref}>
+    <section className="py-20 px-4 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <h2 className={`text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-foreground transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Por que escolher a <span className="gold-gradient">DUDU BARBEARIA</span>?
-        </h2>
+        <FadeIn direction="up">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-foreground">
+            Por que escolher a <span className="gold-gradient">DUDU BARBEARIA</span>?
+          </h2>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {reasons.map((item, i) => (
-            <div
-              key={item.title}
-              className={`bg-card rounded-xl p-6 border border-border hover:border-gold/50 transition-all duration-500 hover:gold-glow ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <item.icon className="w-10 h-10 text-gold mb-4" />
-              <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            <FadeIn key={item.title} direction="up" delay={i * 0.15}>
+              <div className="bg-card rounded-xl p-6 border border-border hover:border-gold/50 transition-all duration-500 hover:gold-glow h-full">
+                <item.icon className="w-10 h-10 text-gold mb-4" />
+                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <Button variant="goldOutline" size="lg" asChild>
-            <a href="#como-funciona">👉 Veja como funciona</a>
-          </Button>
-        </div>
+        <FadeIn direction="up" delay={0.4}>
+          <div className="text-center mt-10">
+            <Button variant="goldOutline" size="lg" asChild className="hover:scale-105 transition-transform duration-300">
+              <a href="#como-funciona">👉 Veja como funciona</a>
+            </Button>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
