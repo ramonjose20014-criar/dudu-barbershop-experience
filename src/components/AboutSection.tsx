@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import aboutImg1 from "@/assets/about-barber-1.jpg";
 import aboutImg2 from "@/assets/about-barber-2.jpg";
+import award2018 from "@/assets/award-2018.jpg";
+import award2023 from "@/assets/award-2023.jpg";
 import { FadeIn } from "./animations/FadeIn";
 
 export function AboutSection() {
@@ -67,6 +69,56 @@ export function AboutSection() {
                 />
               </div>
 
+            </div>
+          </FadeIn>
+      </div>
+
+      {/* Seção de Prêmios e Reconhecimento */}
+      <div className="max-w-6xl mx-auto mt-24">
+        <FadeIn direction="up">
+          <h3 className="text-2xl md:text-3xl font-heading font-bold text-center mb-10 text-foreground">
+            Nossas <span className="gold-gradient">Conquistas</span>
+          </h3>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+          {/* Prêmio 2023 */}
+          <FadeIn direction="up" delay={0.2}>
+            <div className="bg-card/50 backdrop-blur-sm border border-gold/20 rounded-2xl overflow-hidden hover:border-gold/50 transition-all duration-500 group h-full flex flex-col sm:flex-row items-center">
+              <div className="w-full sm:w-1/2 h-64 sm:h-full overflow-hidden">
+                <img 
+                  src={award2023} 
+                  alt="Troféu Prêmio Referência 2023" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8 sm:w-1/2">
+                <div className="text-gold text-sm font-bold tracking-widest uppercase mb-2">2023</div>
+                <h4 className="text-xl font-bold text-foreground mb-4">Prêmio Referência</h4>
+                <p className="text-muted-foreground text-sm uppercase leading-relaxed">
+                  Dudu Barbeiro foi reconhecido mais uma vez como a grande referência em barbearia na região.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Prêmio 2018 */}
+          <FadeIn direction="up" delay={0.4}>
+            <div className="bg-card/50 backdrop-blur-sm border border-gold/20 rounded-2xl overflow-hidden hover:border-gold/50 transition-all duration-500 group h-full flex flex-col sm:flex-row items-center">
+              <div className="w-full sm:w-1/2 h-64 sm:h-full overflow-hidden">
+                <img 
+                  src={award2018} 
+                  alt="Certificado Prêmio Referência 2018" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8 sm:w-1/2">
+                <div className="text-gold text-sm font-bold tracking-widest uppercase mb-2">2018</div>
+                <h4 className="text-xl font-bold text-foreground mb-4">Destaque do Ano</h4>
+                <p className="text-muted-foreground text-sm uppercase leading-relaxed">
+                  Título de Cabeleireiro Referência com base em pesquisa de opinião pública no Cariri.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>
