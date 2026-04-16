@@ -14,6 +14,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const springX = useSpring(0, { stiffness: 50, damping: 20 });
   const springY = useSpring(0, { stiffness: 50, damping: 20 });
+  const parallaxX = useTransform(springX, (v) => v * 1.5);
+  const parallaxY = useTransform(springY, (v) => v * 1.5);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -82,7 +84,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
           />
 
           <motion.div 
-            style={{ x: useTransform(springX, (v) => v * 1.5), y: useTransform(springY, (v) => v * 1.5) }}
+            style={{ x: parallaxX, y: parallaxY }}
             className="relative flex flex-col items-center gap-12 z-10"
           >
             {/* Pulsing Icon (Stylized Barber Pole/Razor Shape) */}
