@@ -13,15 +13,6 @@ import { Footer } from "@/components/Footer";
 import ShaderBackground from "@/components/ui/shader-background";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "DUDU BARBEARIA — Seu estilo começa aqui" },
-      { name: "description", content: "Barbearia profissional em Amparo, PB. Cortes masculinos, barba, sobrancelha e muito mais. Atendimento por ordem de chegada." },
-      { property: "og:title", content: "DUDU BARBEARIA — Seu estilo começa aqui" },
-      { property: "og:description", content: "Mais do que apenas um corte, uma experiência única. Visite a DUDU BARBEARIA." },
-      { property: "og:type", content: "website" },
-    ],
-  }),
   component: Index,
 });
 
