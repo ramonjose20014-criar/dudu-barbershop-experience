@@ -71,6 +71,7 @@ export function AboutSection() {
 
             </div>
           </FadeIn>
+        </div>
       </div>
 
       {/* Seção de Prêmios e Reconhecimento */}
