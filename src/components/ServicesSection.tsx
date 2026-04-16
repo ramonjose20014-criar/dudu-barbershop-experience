@@ -7,6 +7,9 @@ const services = [
   { name: "Barba", price: "R$10" },
   { name: "Sobrancelha", price: "R$5" },
   { name: "Corte feminino", price: "R$25" },
+  { name: "Lavagem de cabelo masculino", price: "R$5" },
+  { name: "Lavagem de cabelo masculino com hidratação com micro queratina", price: "R$10" },
+  { name: "Lavagem e hidratação com condicionador restaurador com micro queratina", price: "R$15" },
 ];
 
 const combos = [
