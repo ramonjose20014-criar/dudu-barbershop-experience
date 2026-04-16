@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { NossoEspacoSection } from "@/components/NossoEspacoSection";
 import { WhyChooseSection } from "@/components/WhyChooseSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProductsSection } from "@/components/ProductsSection";
@@ -21,6 +22,7 @@ function Index() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <NossoEspacoSection />
       <WhyChooseSection />
       
       {/* Wrapper dinâmico com Shader animado suave */}
