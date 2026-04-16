@@ -1,4 +1,6 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
+import SplashScreen from "../components/ui/SplashScreen";
 
 function NotFoundComponent() {
   return (
@@ -30,5 +32,14 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-  return <Outlet />;
+  const [showSplash, setShowSplash] = useState(true);
+
+  return (
+    <>
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      <div className={showSplash ? "hidden" : "block"}>
+        <Outlet />
+      </div>
+    </>
+  );
 }
