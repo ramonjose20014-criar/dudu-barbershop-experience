@@ -4,7 +4,9 @@ import { FadeIn } from "./animations/FadeIn";
 const products = [
   { name: "Pomadas", price: "R$15" },
   { name: "Shampoo", price: "R$20" },
+  { name: "Pó modelador", price: "R$20" },
   { name: "Minoxidil", price: "R$45" },
+  { name: "Máquina de cortar cabelo", price: "R$120" },
 ];
 
 export function ProductsSection() {
@@ -17,7 +19,7 @@ export function ProductsSection() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {products.map((p, i) => (
             <FadeIn key={p.name} direction="up" delay={i * 0.15}>
               <div className="bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:border-gold/50 transition-all duration-300 hover:gold-glow group h-full">
