@@ -26,20 +26,6 @@ export function NossoEspacoSection() {
               <p className="text-muted-foreground text-xl leading-relaxed">
                 Cada detalhe foi planejado para oferecer não apenas um corte, mas um momento de relaxamento e estilo. Um ambiente clássico com um toque de modernidade.
               </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                {[
-                  { title: "Conforto", desc: "Ambiente 100% climatizado" },
-                  { title: "Exclusividade", desc: "Atendimento com hora marcada" },
-                  { title: "Lazer", desc: "Bar e cafés selecionados" },
-                  { title: "Qualidade", desc: "Equipamentos de última geração" },
-                ].map((item, index) => (
-                  <div key={index} className="flex flex-col gap-1">
-                    <span className="text-gold font-bold uppercase text-xs tracking-widest">{item.title}</span>
-                    <span className="text-foreground/70 text-sm">{item.desc}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </FadeIn>
 
