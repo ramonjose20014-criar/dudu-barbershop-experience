@@ -40,13 +40,13 @@ export function Footer() {
               Rua João Pedro Xavier, S/N, Amparo, 58548-000, PB, Brasil
             </p>
             <a
-              href="https://www.instagram.com/clebermacielsilva?igsh=MTk0b2U0NmwyNm9kMQ=="
+              href="https://www.instagram.com/_dudu.barbearia?igsh=MTk0b2U0NmwyNm9kMQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gold hover:text-gold-light hover:translate-x-1 transition-all text-sm duration-300"
             >
               <Instagram className="w-5 h-5" />
-              @clebermacielsilva
+              @_dudu.barbearia
             </a>
           </div>
         </FadeIn>
